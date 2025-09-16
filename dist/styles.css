@@ -1,0 +1,123 @@
+/* PAUSEAI color variables */
+:root {
+  --color-primary: #0a2342;      /* Deep blue */
+  --color-secondary: #f7faff;    /* Light background */
+  --color-accent: #ffd600;       /* PauseAI yellow */
+  --color-accent-dark: #ffb300;  /* PauseAI orange */
+  --color-accent-blue: #e0f7fa;  /* PauseAI light blue accent */
+  --color-border: #b3c6e0;
+  --color-text: #234;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: var(--color-primary);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 480px;
+  margin: 48px auto 0 auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px 0 rgba(10, 35, 66, 0.13), 0 1.5px 6px 0 rgba(10, 35, 66, 0.08);
+  padding: 36px 32px 28px 32px;
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+  color: var(--color-primary);
+  font-size: 2.1em;
+  font-weight: 600;
+  margin-bottom: 28px;
+  letter-spacing: -1px;
+}
+
+label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--color-primary);
+  font-weight: 400;
+  font-size: 1.05em;
+}
+
+select,
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 12px 13px;
+  margin-bottom: 20px;
+  border: 1.5px solid #e2e6ed;
+  border-radius: 7px;
+  font-size: 1em;
+  background: var(--color-secondary);
+  box-sizing: border-box;
+  color: var(--color-primary);
+  transition: border 0.2s;
+}
+
+select:focus,
+input[type="text"]:focus,
+textarea:focus {
+  border: 1.5px solid var(--color-accent);
+  outline: none;
+  background: #fffbe6;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+button {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  color: var(--color-primary);
+  border: none;
+  border-radius: 7px;
+  font-size: 1.15em;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0 rgba(255, 214, 0, 0.10);
+  letter-spacing: 0.5px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  background: linear-gradient(90deg, var(--color-accent-dark) 0%, var(--color-accent) 100%);
+  color: var(--color-primary);
+  box-shadow: 0 4px 16px 0 rgba(255, 214, 0, 0.18);
+}
+
+/* Optional: Add a logo area at the top if needed */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+#selected-politician-email {
+  display: inline-block;
+  min-width: 180px;
+  min-height: 1.5em;
+  padding: 0.2em 0.8em;
+  background: var(--color-accent-blue);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  color: var(--color-text);
+  font-weight: bold;
+  font-size: 1em;
+  vertical-align: middle;
+  transition: background 0.2s, border 0.2s;
+}
+
+#selected-politician-email:not(:empty) {
+  background: var(--color-accent-accent);
+  border-color: var(--color-accent );
+  color: var(--color-text );
+}
