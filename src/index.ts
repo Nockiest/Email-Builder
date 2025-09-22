@@ -15,6 +15,7 @@ function sendEmail(to: string, subject: string, body: string): void {
     },
     body: JSON.stringify({
       to_email: to,
+      from_email: "from_email",
       subject: subject,
       message: body,
     }),
@@ -60,8 +61,23 @@ const politicianEmails: { [key: string]: string } = {
   "Veronika Vrecionová": "veronika.vrecionova@europarl.europa.eu",
   "Tomáš Zdechovský": "tomas.zdechovsky@europarl.europa.eu",
 };
+
 // Load politician names into the select box and add event listener for send button
 document.addEventListener("DOMContentLoaded", () => {
+  // fetch email contents
+   console.log("fetching-email" )
+  fetch(`${TO_URL}/email-template`)
+ 
+    .then((response) => response.text())
+    .then((text) => {
+      const bodyInput = document.getElementById(
+        "email-body"
+      ) as HTMLTextAreaElement | null;
+      if (bodyInput) {
+        bodyInput.value = text;
+      }
+    });
+
   const select = document.getElementById(
     "politician"
   ) as HTMLSelectElement | null;
@@ -116,6 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 // // Event listener for form submission
 // document.addEventListener('DOMContentLoaded', function() {
 //     const sendButton = document.getElementById('send-button');

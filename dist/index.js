@@ -15,6 +15,7 @@ function sendEmail(to, subject, body) {
         },
         body: JSON.stringify({
             to_email: to,
+            from_email: "from_email",
             subject: subject,
             message: body,
         }),
@@ -59,6 +60,17 @@ const politicianEmails = {
 };
 // Load politician names into the select box and add event listener for send button
 document.addEventListener("DOMContentLoaded", () => {
+    // fetch email contents
+    console.log("fetching-email");
+    fetch(`${TO_URL}/email-template`)
+        .then((response) => response.text())
+        .then((text) => {
+        const bodyInput = document.getElementById("email-body");
+        console.log("fetched-email", text);
+        if (bodyInput) {
+            bodyInput.value = text;
+        }
+    });
     const select = document.getElementById("politician");
     const selectedPoliticianSpan = document.getElementById("selected-politician-email");
     if (select) {
