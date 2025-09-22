@@ -4,7 +4,7 @@
   --color-secondary: #f7faff;    /* Light background */
   --color-accent: #ffd600;       /* PauseAI yellow */
   --color-accent-dark: #ffb300;  /* PauseAI orange */
-  --color-accent-blue: #e0f7fa;  /* PauseAI light blue accent */
+  --color-accent-blue: #ffd45f;  /* PauseAI light blue accent */
   --color-border: #b3c6e0;
   --color-text: #234;
 }
@@ -72,6 +72,25 @@ textarea {
   resize: vertical;
 }
 
+.first-child-stretched {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0.5em;
+}
+
+.first-child-stretched > :first-child {
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.first-child-stretched   > :nth-child(2) {
+  flex: 0 0 auto;
+  width: auto;
+  padding: 0;
+  margin: 0;
+}
+
 button {
   width: 100%;
   padding: 13px;
@@ -93,6 +112,39 @@ button:hover {
   box-shadow: 0 4px 16px 0 rgba(255, 214, 0, 0.18);
 }
 
+.copy-btn {
+  background: none;
+  border: none;
+  padding: 0.25em;
+  margin-left: 0.2em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.copy-btn:focus,
+.copy-btn:hover {
+  background: var(--color-accent-blue, #e0f7fa);
+  outline: none;
+}
+
+.copy-btn svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.copy-btn svg rect,
+.copy-btn svg path {
+  stroke: var(--color-primary, #0a2342);
+  transition: stroke 0.2s;
+}
+.copy-btn:hover svg rect,
+.copy-btn:hover svg path {
+  stroke: var(--color-accent, #ffd600);
+}
 /* Optional: Add a logo area at the top if needed */
 .logo {
   display: flex;
@@ -106,7 +158,7 @@ button:hover {
   min-width: 180px;
   min-height: 1.5em;
   padding: 0.2em 0.8em;
-  background: var(--color-accent-blue);
+  background: var(--color-accent-secondary, #fffbe6);
   border: 1px solid var(--color-border);
   border-radius: 6px;
   color: var(--color-text);
@@ -120,4 +172,10 @@ button:hover {
   background: var(--color-accent-accent);
   border-color: var(--color-accent );
   color: var(--color-text );
+}
+
+#email-body {
+  min-height: 200px;
+  resize: vertical;
+  font-size: 1em;
 }
