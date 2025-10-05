@@ -113,6 +113,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+const emailSpan = document.getElementById("selected-politician-email");
+select.addEventListener("change", function () {
+    const email = politicianEmails[select.value] || "";
+    if (emailSpan) {
+        emailSpan.textContent = email;
+        emailSpan.style.display = email ? "inline-block" : "none";
+    }
+});
 // // Event listener for form submission
 // document.addEventListener('DOMContentLoaded', function() {
 //     const sendButton = document.getElementById('send-button');

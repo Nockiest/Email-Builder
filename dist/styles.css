@@ -2,21 +2,36 @@
 :root {
   --color-primary: #0a2342;      /* Deep blue */
   --color-secondary: #f7faff;    /* Light background */
-  --color-accent: #ffd600;       /* PauseAI yellow */
+  --color-accent: #FF9416;       /* PauseAI yellow */
   --color-accent-dark: #ffb300;  /* PauseAI orange */
-  --color-accent-blue: #ffd45f;  /* PauseAI light blue accent */
-  --color-border: #b3c6e0;
+  --color-accent-yellow: #ffd45f;  /* PauseAI light blue accent */
+  --color-border: #ffffff;
   --color-text: #234;
 }
 
 body {
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  background: var(--color-primary);
+  background: var(--color-accent-yellow);
   margin: 0;
   padding: 0;
   min-height: 100vh;
 }
 
+.logo {
+
+  display: block;
+  margin: 24px auto ;
+  max-width: 100%;
+  height: auto;
+  width: 320px;
+}
+
+@media (max-width: 600px) {
+  .logo {
+    width: 180px;
+    margin-bottom: 16px;
+  }
+}
 .container {
   max-width: 480px;
   margin: 48px auto 0 auto;
@@ -126,7 +141,7 @@ button:hover {
 
 .copy-btn:focus,
 .copy-btn:hover {
-  background: var(--color-accent-blue, #e0f7fa);
+  background: var(--color-accent-yellow, #e0f7fa);
   outline: none;
 }
 
