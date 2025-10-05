@@ -103,6 +103,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const subject = (_b = subjectInput === null || subjectInput === void 0 ? void 0 : subjectInput.value) !== null && _b !== void 0 ? _b : "";
             const body = (_c = bodyInput === null || bodyInput === void 0 ? void 0 : bodyInput.value) !== null && _c !== void 0 ? _c : "";
             const email = politicianEmails[selectedName];
+            // check if user really wants to send the email
+            if (!confirm("Opravdu chcete odeslat tento e-mail?")) {
+                return;
+            }
             if (email) {
                 sendEmail(email, subject, body);
             }

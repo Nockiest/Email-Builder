@@ -65,9 +65,8 @@ const politicianEmails: { [key: string]: string } = {
 // Load politician names into the select box and add event listener for send button
 document.addEventListener("DOMContentLoaded", () => {
   // fetch email contents
-   console.log("fetching-email" )
+  console.log("fetching-email");
   fetch(`${TO_URL}/email-template`)
- 
     .then((response) => response.text())
     .then((text) => {
       const bodyInput = document.getElementById(
@@ -124,6 +123,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const subject = subjectInput?.value ?? "";
       const body = bodyInput?.value ?? "";
       const email = politicianEmails[selectedName];
+      
+      // check if user really wants to send the email
+      if (!confirm("Opravdu chcete odeslat tento e-mail?")) {
+        return;
+      }
       if (email) {
         sendEmail(email, subject, body);
       } else {
@@ -133,23 +137,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
 const emailRow = document.getElementById("selected-politician-row");
 const emailSpan = document.getElementById("selected-politician-email");
-const select = document.getElementById("politician") as HTMLSelectElement | null;
+const select = document.getElementById(
+  "politician"
+) as HTMLSelectElement | null;
 
 if (select) {
-    select.addEventListener("change", function () {
-      console.log("select changed", emailRow?.textContent);
-        const email = politicianEmails[select.value] || "";
-        if (emailRow) {
-            emailRow.style.display = email ? "flex" : "none";
-        }
-        if (emailSpan) {
-            emailSpan.textContent = email;
-            emailSpan.style.display = email ? "inline-block" : "none";
-        }
-    });
+  select.addEventListener("change", function () {
+    console.log("select changed", emailRow?.textContent);
+    const email = politicianEmails[select.value] || "";
+    if (emailRow) {
+      emailRow.style.display = email ? "flex" : "none";
+    }
+    if (emailSpan) {
+      emailSpan.textContent = email;
+      emailSpan.style.display = email ? "inline-block" : "none";
+    }
+  });
 }
 // // Event listener for form submission
 // document.addEventListener('DOMContentLoaded', function() {
