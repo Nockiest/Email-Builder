@@ -65,21 +65,26 @@ const politicianEmails: { [key: string]: string } = {
 // Load politician names into the select box and add event listener for send button
 document.addEventListener("DOMContentLoaded", () => {
   // fetch email contents
+  const emailBody = document.getElementById(
+        "email-body"
+      ) as HTMLTextAreaElement | null;
+   const select = document.getElementById(
+        "politician"
+      ) as HTMLSelectElement | null;
+      const subjectInput = document.getElementById(
+        "subject"
+      ) as HTMLInputElement | null;
   console.log("fetching-email");
   fetch(`${TO_URL}/email-template`)
     .then((response) => response.text())
     .then((text) => {
-      const bodyInput = document.getElementById(
-        "email-body"
-      ) as HTMLTextAreaElement | null;
-      if (bodyInput) {
-        bodyInput.value = text;
+      
+      if (emailBody) {
+        emailBody.value = text;
       }
     });
 
-  const select = document.getElementById(
-    "politician"
-  ) as HTMLSelectElement | null;
+  
   const selectedPoliticianSpan = document.getElementById(
     "selected-politician-email"
   );
@@ -110,18 +115,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (sendButton) {
     sendButton.addEventListener("click", (e: MouseEvent) => {
       e.preventDefault();
-      const select = document.getElementById(
-        "politician"
-      ) as HTMLSelectElement | null;
-      const subjectInput = document.getElementById(
-        "subject"
-      ) as HTMLInputElement | null;
-      const bodyInput = document.getElementById(
-        "body"
-      ) as HTMLTextAreaElement | null;
+     
+       
+        console.log("body input is:" + emailBody, emailBody?.value);
+
       const selectedName = select?.value ?? "";
       const subject = subjectInput?.value ?? "";
-      const body = bodyInput?.value ?? "";
+      const body = emailBody?.value ?? "";
       const email = politicianEmails[selectedName];
       
       // check if user really wants to send the email

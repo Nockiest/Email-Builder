@@ -61,16 +61,17 @@ const politicianEmails = {
 // Load politician names into the select box and add event listener for send button
 document.addEventListener("DOMContentLoaded", () => {
     // fetch email contents
+    const emailBody = document.getElementById("email-body");
+    const select = document.getElementById("politician");
+    const subjectInput = document.getElementById("subject");
     console.log("fetching-email");
     fetch(`${TO_URL}/email-template`)
         .then((response) => response.text())
         .then((text) => {
-        const bodyInput = document.getElementById("email-body");
-        if (bodyInput) {
-            bodyInput.value = text;
+        if (emailBody) {
+            emailBody.value = text;
         }
     });
-    const select = document.getElementById("politician");
     const selectedPoliticianSpan = document.getElementById("selected-politician-email");
     if (select) {
         // Remove existing options except the first (placeholder)
@@ -96,12 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
         sendButton.addEventListener("click", (e) => {
             var _a, _b, _c;
             e.preventDefault();
-            const select = document.getElementById("politician");
-            const subjectInput = document.getElementById("subject");
-            const bodyInput = document.getElementById("body");
+            console.log("body input is:" + emailBody, emailBody === null || emailBody === void 0 ? void 0 : emailBody.value);
             const selectedName = (_a = select === null || select === void 0 ? void 0 : select.value) !== null && _a !== void 0 ? _a : "";
             const subject = (_b = subjectInput === null || subjectInput === void 0 ? void 0 : subjectInput.value) !== null && _b !== void 0 ? _b : "";
-            const body = (_c = bodyInput === null || bodyInput === void 0 ? void 0 : bodyInput.value) !== null && _c !== void 0 ? _c : "";
+            const body = (_c = emailBody === null || emailBody === void 0 ? void 0 : emailBody.value) !== null && _c !== void 0 ? _c : "";
             const email = politicianEmails[selectedName];
             // check if user really wants to send the email
             if (!confirm("Opravdu chcete odeslat tento e-mail?")) {
