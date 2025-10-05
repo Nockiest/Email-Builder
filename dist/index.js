@@ -66,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((response) => response.text())
         .then((text) => {
         const bodyInput = document.getElementById("email-body");
-        console.log("fetched-email", text);
         if (bodyInput) {
             bodyInput.value = text;
         }
@@ -113,15 +112,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
-
+const emailRow = document.getElementById("selected-politician-row");
 const emailSpan = document.getElementById("selected-politician-email");
-select.addEventListener("change", function () {
-    const email = politicianEmails[select.value] || "";
-    if (emailSpan) {
-        emailSpan.textContent = email;
-        emailSpan.style.display = email ? "inline-block" : "none";
-    }
-});
+const select = document.getElementById("politician");
+if (select) {
+    select.addEventListener("change", function () {
+        console.log("select changed", emailRow === null || emailRow === void 0 ? void 0 : emailRow.textContent);
+        const email = politicianEmails[select.value] || "";
+        if (emailRow) {
+            emailRow.style.display = email ? "flex" : "none";
+        }
+        if (emailSpan) {
+            emailSpan.textContent = email;
+            emailSpan.style.display = email ? "inline-block" : "none";
+        }
+    });
+}
 // // Event listener for form submission
 // document.addEventListener('DOMContentLoaded', function() {
 //     const sendButton = document.getElementById('send-button');
