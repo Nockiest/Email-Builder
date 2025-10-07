@@ -54,7 +54,7 @@ async function sendEmail(to_email, from_email, subject, message) {
 app.post("/send-email", async (req, res) => {
   const { to_email, subject, message, from_email } = req.body;
   console.log(req.body);
-  
+  //
   // checking if email has all required fields
   const missingFields = [];
   if (!to_email) missingFields.push("to_email");
