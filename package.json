@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx serve .",
     "build": "tsc",
-        "watch": "tsc --watch",
-        "this is a test": "echo \"Hello, World!\""
+    "watch": "tsc --watch",
+    "this is a test": "echo \"Hello, World!\""
   },
   "author": "",
   "license": "ISC",
