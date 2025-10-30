@@ -67,7 +67,7 @@ const politiciansByOffice = {
     // add MPs here
     },
     other: {
-        "Ondřej Lukeš": "ondralukes06@seznam.cz",
+        // "Ondřej Lukeš": "ondralukes06@seznam.cz",
         "Jaroslav Bžoch": "jaroslav.bzoch@europarl.euro", // keep as-is or correct domain if known
     },
 };
