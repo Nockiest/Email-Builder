@@ -67,7 +67,7 @@ const politiciansByOffice = {
     // add MPs here
     },
     other: {
-        // "Ondřej Lukeš": "ondralukes06@seznam.cz",
+        "Ondřej Lukeš": "ondralukes06@seznam.cz",
         "Jaroslav Bžoch": "jaroslav.bzoch@europarl.euro", // keep as-is or correct domain if known
     },
 };
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const emailBody = document.getElementById("email-body");
     const select = document.getElementById("politician");
     const subjectInput = document.getElementById("subject");
-    console.log("fetching-email");
+    // console.log("fetching-email");
     // fetch email text from backend
     fetch(`${TO_URL}/email-template`)
         .then((response) => response.text())
@@ -176,3 +176,71 @@ document.addEventListener("DOMContentLoaded", () => {
 const emailRow = document.getElementById("selected-politician-row");
 const emailSpan = document.getElementById("selected-politician-email");
 const select = document.getElementById("politician");
+document.addEventListener("DOMContentLoaded", () => {
+    const copyButtons = document.querySelectorAll(".copy-btn");
+    console.log("Found copy buttons:", copyButtons);
+    copyButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            // Find the parent of the button
+            const parent = button.parentElement;
+            console.log("Parent element:", parent);
+            if (parent) {
+                // Find the child with the class "copyable"
+                const copyableChild = parent.querySelector(".copyable");
+                console.log("Copyable child element:", copyableChild);
+                if (copyableChild) {
+                    let textToCopy = "";
+                    // Check if the copyable child is an input or textarea
+                    if (copyableChild instanceof HTMLInputElement ||
+                        copyableChild instanceof HTMLTextAreaElement) {
+                        textToCopy = copyableChild.value.trim(); // Use the value property for input/textarea
+                    }
+                    else {
+                        textToCopy = copyableChild.innerHTML.trim(); // Use innerHTML for other elements
+                    }
+                    console.log("Text to copy:", textToCopy);
+                    if (textToCopy) {
+                        navigator.clipboard.writeText(textToCopy).then(() => {
+                            alert("Text zkopírován do schránky!"); // Notify the user
+                            console.log("Copied text successfully!");
+                        });
+                    }
+                    else {
+                        alert("Nenalezen žádný obsah ke kopírování.");
+                    }
+                }
+                else {
+                    console.log("No copyable child found.");
+                    alert("Nenalezen žádný obsah ke kopírování.");
+                }
+            }
+            else {
+                console.log("No parent element found.");
+            }
+        });
+    });
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const emailBody = document.getElementById("email-body");
+    if (emailBody) {
+        emailBody.value = `Vážený pane poslanče / Vážená paní poslankyně,
+Píšu Vám, abych vyjádřil své obavy ohledně vývoje umělé inteligence a jejího potenciálního dopadu na naši společnost. Dozvěděl jsem se, že vedoucí představitelé předních společností zabývajících se umělou inteligencí a přední odborníci v této oblasti v současné době varují před rizikem vyhynutí v důsledku umělé inteligence. 
+Konkrétně toto riziko vyplývá z vývoje toho, co odborníci v této oblasti označují jako „superinteligenci“.
+Jedním z příkladů je otevřené prohlášení CAIS o rizicích umělé inteligence, ve kterém se uvádí: „Snížení rizika vyhynutí v důsledku umělé inteligence by mělo být globální prioritou vedle jiných rizik 
+společenského rozsahu, jako jsou pandemie a jaderná válka.“ Toto prohlášení podporují jak generální ředitelé 
+předních společností zabývajících se umělou inteligencí, tak i nejvýznamnější odborníci v této oblasti, včetně nositelů Nobelovy ceny a Turingovy ceny.
+Vzhledem k těmto informacím považuji za velmi znepokojivé, že několik největších společností zabývajících se umělou inteligencí se výslovně zaměřuje na vývoj superinteligence, a to navzdory jasným varováním předních odborníků v této oblasti.
+I když si uvědomuji transformativní přínosy, které mohou pokročilé technologie umělé inteligence přinést, vytvoření systémů s inteligencí daleko přesahující lidské schopnosti s sebou nese nevratná a potenciálně katastrofická rizika, která nelze ignorovat. K tomuto vývoji musíme přistupovat s opatrností a odpovědností.
+Vyzývám vás, abyste veřejně požadovali přijetí nových zákonů, které nás ochrání před hrozbou, kterou představuje vývoj superinteligentních systémů umělé inteligence. Je zásadně důležité, aby náš zákonodárný sbor zaujal proaktivní přístup při vytváření koalice zaměřené na zákaz superinteligence a zajištění toho, že si udržíme kontrolu nad svou budoucností.
+
+Rád bych vám poskytl jakékoli další informace, které by mohly být užitečné při zvažování této záležitosti, a to buď vám osobně, nebo vaší kanceláři.
+
+Děkuji vám za váš čas a pozornost věnovanou této důležité záležitosti.
+
+S pozdravem,
+
+[Vaše jméno]
+
+[Váš volební obvod/místo]`;
+    }
+});

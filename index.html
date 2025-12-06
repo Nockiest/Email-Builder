@@ -22,8 +22,8 @@
         <!-- Možnosti  budou vloženy pomocí JavaScriptu -->
       </select>
 
-      <div id="selected-politician-row" class="first-child-stretched">
-        <span id="selected-politician-email"></span>
+      <div id="selected-politician-row" class="first-child-stretched copyable">
+        <span id="selected-politician-email" class="copyable"></span>
         <!-- Button for copying email in the field above -->
         <button
           type="button"
@@ -68,6 +68,7 @@
           type="text"
           id="subject"
           value="Nebezpečí z vývoje AI a důležitost regulací"
+          class="copyable"
           required
         />
         <button
@@ -110,7 +111,7 @@
 
       <label for="body">Text e-mailu:</label>
       <div class="first-child-stretched">
-        <textarea required id="email-body"></textarea>
+        <textarea required id="email-body" class="copyable"></textarea>
         <button
           type="button"
           id="copy-email"

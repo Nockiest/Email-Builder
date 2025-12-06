@@ -1,4 +1,3 @@
-
 const TO_URL = "http://localhost:4000"; // <-- updated to use env variable
 
 /**
@@ -36,7 +35,6 @@ function sendEmail(to: string, subject: string, body: string): void {
     });
 }
 
- 
 // Group politicians by public office
 const politiciansByOffice: Record<string, Record<string, string>> = {
   europoslanec: {
@@ -106,7 +104,9 @@ function officeLabel(key: string): string {
 }
 
 // Helper to get typed entries without relying on newer lib defs (avoids Object.entries TS lib error)
-function typedEntries<T extends Record<string, any>, K extends keyof T>(obj: T): [K, T[K]][] {
+function typedEntries<T extends Record<string, any>, K extends keyof T>(
+  obj: T
+): [K, T[K]][] {
   return Object.keys(obj).map((k) => [k as K, obj[k as K]] as [K, T[K]]);
 }
 
@@ -122,8 +122,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const subjectInput = document.getElementById(
     "subject"
   ) as HTMLInputElement | null;
- 
-  console.log("fetching-email");
+
+  // console.log("fetching-email");
   // fetch email text from backend
   fetch(`${TO_URL}/email-template`)
     .then((response) => response.text())
@@ -160,23 +160,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // adds event listener to update email display on selection change
     select.addEventListener("change", function () {
-    const selectedName = select.value; // Get the selected politician's name
-    const email = getEmailByName(selectedName) || ""; // Get the email using the name
+      const selectedName = select.value; // Get the selected politician's name
+      const email = getEmailByName(selectedName) || ""; // Get the email using the name
 
-    if (emailSpan) {
-      emailSpan.textContent = email; // Set the email in the span
-    }
+      if (emailSpan) {
+        emailSpan.textContent = email; // Set the email in the span
+      }
 
-    if (emailRow) {
-      emailRow.style.display = email ? "flex" : "none"; // Show or hide the row based on email presence
-    }
-  });
+      if (emailRow) {
+        emailRow.style.display = email ? "flex" : "none"; // Show or hide the row based on email presence
+      }
+    });
   }
 
   const sendButton = document.getElementById(
     "send-button"
   ) as HTMLButtonElement | null;
-
 
   if (sendButton) {
     sendButton.addEventListener("click", (e: MouseEvent) => {
@@ -208,4 +207,79 @@ const select = document.getElementById(
   "politician"
 ) as HTMLSelectElement | null;
 
- 
+document.addEventListener("DOMContentLoaded", () => {
+  const copyButtons = document.querySelectorAll(".copy-btn");
+  console.log("Found copy buttons:", copyButtons);
+
+  copyButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      // Find the parent of the button
+      const parent = button.parentElement;
+      console.log("Parent element:", parent);
+
+      if (parent) {
+        // Find the child with the class "copyable"
+        const copyableChild = parent.querySelector(".copyable");
+        console.log("Copyable child element:", copyableChild);
+
+        if (copyableChild) {
+          let textToCopy = "";
+
+          // Check if the copyable child is an input or textarea
+          if (
+            copyableChild instanceof HTMLInputElement ||
+            copyableChild instanceof HTMLTextAreaElement
+          ) {
+            textToCopy = copyableChild.value.trim(); // Use the value property for input/textarea
+          } else {
+            textToCopy = copyableChild.innerHTML.trim(); // Use innerHTML for other elements
+          }
+
+          console.log("Text to copy:", textToCopy);
+
+          if (textToCopy) {
+            navigator.clipboard.writeText(textToCopy).then(() => {
+              alert("Text zkopírován do schránky!"); // Notify the user
+              console.log("Copied text successfully!");
+            });
+          } else {
+            alert("Nenalezen žádný obsah ke kopírování.");
+          }
+        } else {
+          console.log("No copyable child found.");
+          alert("Nenalezen žádný obsah ke kopírování.");
+        }
+      } else {
+        console.log("No parent element found.");
+      }
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const emailBody = document.getElementById(
+    "email-body"
+  ) as HTMLTextAreaElement | null;
+
+  if (emailBody) {
+    emailBody.value = `Vážený pane poslanče / Vážená paní poslankyně,
+Píšu Vám, abych vyjádřil své obavy ohledně vývoje umělé inteligence a jejího potenciálního dopadu na naši společnost. Dozvěděl jsem se, že vedoucí představitelé předních společností zabývajících se umělou inteligencí a přední odborníci v této oblasti v současné době varují před rizikem vyhynutí v důsledku umělé inteligence. 
+Konkrétně toto riziko vyplývá z vývoje toho, co odborníci v této oblasti označují jako „superinteligenci“.
+Jedním z příkladů je otevřené prohlášení CAIS o rizicích umělé inteligence, ve kterém se uvádí: „Snížení rizika vyhynutí v důsledku umělé inteligence by mělo být globální prioritou vedle jiných rizik 
+společenského rozsahu, jako jsou pandemie a jaderná válka.“ Toto prohlášení podporují jak generální ředitelé 
+předních společností zabývajících se umělou inteligencí, tak i nejvýznamnější odborníci v této oblasti, včetně nositelů Nobelovy ceny a Turingovy ceny.
+Vzhledem k těmto informacím považuji za velmi znepokojivé, že několik největších společností zabývajících se umělou inteligencí se výslovně zaměřuje na vývoj superinteligence, a to navzdory jasným varováním předních odborníků v této oblasti.
+I když si uvědomuji transformativní přínosy, které mohou pokročilé technologie umělé inteligence přinést, vytvoření systémů s inteligencí daleko přesahující lidské schopnosti s sebou nese nevratná a potenciálně katastrofická rizika, která nelze ignorovat. K tomuto vývoji musíme přistupovat s opatrností a odpovědností.
+Vyzývám vás, abyste veřejně požadovali přijetí nových zákonů, které nás ochrání před hrozbou, kterou představuje vývoj superinteligentních systémů umělé inteligence. Je zásadně důležité, aby náš zákonodárný sbor zaujal proaktivní přístup při vytváření koalice zaměřené na zákaz superinteligence a zajištění toho, že si udržíme kontrolu nad svou budoucností.
+
+Rád bych vám poskytl jakékoli další informace, které by mohly být užitečné při zvažování této záležitosti, a to buď vám osobně, nebo vaší kanceláři.
+
+Děkuji vám za váš čas a pozornost věnovanou této důležité záležitosti.
+
+S pozdravem,
+
+[Vaše jméno]
+
+[Váš volební obvod/místo]`;
+  }
+});
