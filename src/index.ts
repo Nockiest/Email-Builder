@@ -1,5 +1,6 @@
 const TO_URL = "http://localhost:4000"; // <-- updated to use env variable
 
+// https://pspen.psp.cz/chamber-members/members/?utm_source=chatgpt.com
 /**
  * Odešle e-mail pomocí mailto odkazu.
  * @param to - E-mailová adresa příjemce.
@@ -67,10 +68,214 @@ const politiciansByOffice: Record<string, Record<string, string>> = {
     // add presidents here
   },
   poslanec: {
-    // add MPs here
+     'Ivan Adamec':  `adameci@seznam.cz` , // SPOLU
+ 'Věra Adámková':  `adamkovav@seznam.cz` , // ANO
+ 'Hana Ančincová':  `ancincovah@seznam.cz` , // Piráti
+ 'Andrej Babiš':  `babisa@seznam.cz` , // ANO
+ 'Ondřej Babka':  `babkao@seznam.cz` , // ANO
+ 'Jana Bačíková':  `bacikovaj@seznam.cz` , // SPOLU
+ 'Jiří Barták':  `bartakj@seznam.cz` , // Motoristé
+ 'Pavel Bartoň':  `bartonp@seznam.cz` , // ANO
+ 'Ivan Bartoš':  `bartosi@seznam.cz` , // Piráti
+ 'Jan Bartošek':  `bartosekj@seznam.cz` , // SPOLU
+ 'Lucie Bartošová':  `bartosoval@seznam.cz` , // SPOLU
+ 'Jan Bauer':  `bauerj@seznam.cz` , // SPOLU
+ 'Martin Baxa':  `baxam@seznam.cz` , // SPOLU
+ 'Marek Benda':  `bendam@seznam.cz` , // SPOLU
+ 'Petr Bendl':  `bendlp@seznam.cz` , // SPOLU
+ 'Karel Beran':  `berank@seznam.cz` , // Motoristé
+ 'Jan Berki':  `berkij@seznam.cz` , // STAN
+ 'Jana Berkovcová':  `berkovcovaj@seznam.cz` , // ANO
+ 'Drahomír Blažej':  `blazejd@seznam.cz` , // ANO
+ 'Zdeňka Blišťanová':  `blistanovaz@seznam.cz` , // SPOLU
+ 'Jiří Bouška':  `bouskaj@seznam.cz` , // ANO
+ 'Richard Brabec[p 4]':  `4]r@seznam.cz` , // ANO
+ 'Milan Brázdil':  `brazdilm@seznam.cz` , // ANO
+ 'Monika Brzesková':  `brzeskovam@seznam.cz` , // SPOLU
+ 'František Bureš':  `buresf@seznam.cz` , // ANO
+ 'Jan Bureš':  `buresj@seznam.cz` , // SPOLU
+ 'Jana Černochová':  `cernochovaj@seznam.cz` , // SPOLU
+ 'Igor Červený':  `cervenyi@seznam.cz` , // Motoristé
+ 'Benjamin Činčila':  `cincilab@seznam.cz` , // SPOLU
+ 'Eva Decroix':  `decroixe@seznam.cz` , // SPOLU
+ 'Katerina Demetrashvili':  `demetrashvilik@seznam.cz` , // Piráti
+ 'Jana Demjanová[p 5]':  `5]j@seznam.cz` , // ANO
+ 'Denis Doksanský':  `doksanskyd@seznam.cz` , // ANO
+ 'Tomáš Doležal':  `dolezalt@seznam.cz` , // SPD
+ 'Lenka Dražilová':  `draziloval@seznam.cz` , // ANO
+ 'Karel Dvořák':  `dvorakk@seznam.cz` , // STAN
+ 'Jaroslav Faltýnek':  `faltynekj@seznam.cz` , // ANO
+ 'Kamal Farhan':  `farhank@seznam.cz` , // ANO
+ 'Irena Ferčíková Konečná':  `konecnai@seznam.cz` , // Piráti
+ 'Petr Fiala':  `fialap@seznam.cz` , // SPOLU
+ 'Radim Fiala':  `fialar@seznam.cz` , // SPD
+ 'Eva Fialová':  `fialovae@seznam.cz` , // ANO
+ 'Jana Filipovičová':  `filipovicovaj@seznam.cz` , // SPOLU
+ 'Josef Flek':  `flekj@seznam.cz` , // STAN
+ 'Jaroslav Foldyna':  `foldynaj@seznam.cz` , // SPD
+ 'Stanislav Fridrich':  `fridrichs@seznam.cz` , // ANO
+ 'Karin Gajdová':  `gajdovak@seznam.cz` , // ANO
+ 'Matěj Gregor':  `gregorm@seznam.cz` , // Motoristé
+ 'Karel Haas':  `haask@seznam.cz` , // SPOLU
+ 'Jana Hanzlíková':  `hanzlikovaj@seznam.cz` , // ANO
+ 'Matěj Ondřej Havel':  `havelm@seznam.cz` , // SPOLU
+ 'Karel Havlíček':  `havlicekk@seznam.cz` , // ANO
+ 'Jiří Havránek':  `havranekj@seznam.cz` , // SPOLU
+ 'Vlastimil Hebr[p 6]':  `6]v@seznam.cz` , // ANO
+ 'Tomáš Helebrant':  `helebrantt@seznam.cz` , // ANO
+ 'Igor Hendrych':  `hendrychi@seznam.cz` , // ANO
+ 'Petr Hladík':  `hladikp@seznam.cz` , // SPOLU
+ 'Matěj Hlavatý':  `hlavatym@seznam.cz` , // STAN
+ 'Andrea Hoffmannová':  `hoffmannovaa@seznam.cz` , // Piráti
+ 'Libor Hoppe':  `hoppel@seznam.cz` , // SPOLU
+ 'Jiří Horák':  `horakj@seznam.cz` , // SPOLU
+ 'Jan Hrnčíř':  `hrncirj@seznam.cz` , // SPD
+ 'Zdeněk Hřib':  `hribz@seznam.cz` , // Piráti
+ 'Monika Hubíková':  `hubikovam@seznam.cz` , // ANO
+ 'Adriana Chochelová':  `chochelovaa@seznam.cz` , // STAN
+ 'Jan Jakob':  `jakobj@seznam.cz` , // SPOLU
+ 'Jakub Janda':  `jandaj@seznam.cz` , // SPOLU
+ 'Miloslav Janulík':  `janulikm@seznam.cz` , // ANO
+ 'Aleš Juchelka':  `juchelkaa@seznam.cz` , // ANO
+ 'Marian Jurečka':  `jureckam@seznam.cz` , // SPOLU
+ 'Pavel Karpíšek':  `karpisekp@seznam.cz` , // SPOLU
+ 'David Kasal':  `kasald@seznam.cz` , // ANO
+ 'Zdena Kašparová':  `kasparovaz@seznam.cz` , // STAN
+ 'Jiřina Klčová':  `klcovaj@seznam.cz` , // ANO
+ 'Oto Klempíř':  `klempiro@seznam.cz` , // Motoristé
+ 'Tomáš Kohoutek':  `kohoutekt@seznam.cz` , // ANO
+ 'Vladimír Kolek':  `kolekv@seznam.cz` , // ANO
+ 'Martin Kolovratník':  `kolovratnikm@seznam.cz` , // ANO
+ 'Radek Koten':  `kotenr@seznam.cz` , // SPD
+ 'Josef Kott':  `kottj@seznam.cz` , // ANO
+ 'Věra Kovářová':  `kovarovav@seznam.cz` , // STAN
+ 'Veronika Kovářová':  `kovarovav@seznam.cz` , // Piráti
+ 'Petr Kowanda':  `kowandap@seznam.cz` , // ANO
+ 'Jakub Krainer':  `krainerj@seznam.cz` , // STAN
+ 'Robert Králíček':  `kralicekr@seznam.cz` , // ANO
+ 'Miroslav Krejčí':  `krejcim@seznam.cz` , // Motoristé
+ 'Vojtěch Krňanský':  `krnanskyv@seznam.cz` , // Motoristé
+ 'Marie Kršková':  `krskovam@seznam.cz` , // SPOLU
+ 'Jana Krutáková':  `krutakovaj@seznam.cz` , // STAN
+ 'Roman Kubíček':  `kubicekr@seznam.cz` , // ANO
+ 'Petr Kubis[p 7]':  `7]p@seznam.cz` , // ANO
+ 'Michal Kučera':  `kuceram@seznam.cz` , // SPOLU
+ 'Šárka Kučerová[p 8]':  `8]s@seznam.cz` , // Piráti
+ 'Martin Kupec':  `kupecm@seznam.cz` , // ANO
+ 'Martin Kupka':  `kupkam@seznam.cz` , // SPOLU
+ 'Hubert Lang':  `langh@seznam.cz` , // ANO
+ 'Helena Langšádlová':  `langsadlovah@seznam.cz` , // SPOLU
+ 'Jan Lipavský':  `lipavskyj@seznam.cz` , // SPOLU
+ 'Petr Macinka':  `macinkap@seznam.cz` , // Motoristé
+ 'Ivana Mádlová':  `madlovai@seznam.cz` , // ANO
+ 'Zuzana Majerová':  `majerovaz@seznam.cz` , // SPD
+ 'Taťána Malá':  `malat@seznam.cz` , // ANO
+ 'Lenka Martínková Španihelová':  `spaniheloval@seznam.cz` , // Piráti
+ 'Jiří Mašek':  `masekj@seznam.cz` , // ANO
+ 'Lubomír Metnar':  `metnarl@seznam.cz` , // ANO
+ 'Michaela Moricová':  `moricovam@seznam.cz` , // Piráti
+ 'Vojtěch Munzar':  `munzarv@seznam.cz` , // SPOLU
+ 'Jana Murová':  `murovaj@seznam.cz` , // ANO
+ 'Patrik Nacher':  `nacherp@seznam.cz` , // ANO
+ 'Anežka Nedomová':  `nedomovaa@seznam.cz` , // STAN
+ 'Irena Němcová':  `nemcovai@seznam.cz` , // SPD
+ 'Zdenka Němečková Crkvenjaš':  `crkvenjasz@seznam.cz` , // SPOLU
+ 'Bohuslav Niemiec':  `niemiecb@seznam.cz` , // SPOLU
+ 'Marek Novák':  `novakm@seznam.cz` , // ANO
+ 'Monika Oborná':  `obornam@seznam.cz` , // ANO
+ 'Hayato Okamura':  `okamurah@seznam.cz` , // SPOLU
+ 'Tomio Okamura':  `okamurat@seznam.cz` , // SPD
+ 'Ladislav Okleštěk':  `oklestekl@seznam.cz` , // ANO
+ 'Eliška Olšáková':  `olsakovae@seznam.cz` , // STAN
+ 'Michaela Opltová':  `opltovam@seznam.cz` , // STAN
+ 'Renata Oulehlová':  `oulehlovar@seznam.cz` , // ANO
+ 'Pavel Outrata':  `outratap@seznam.cz` , // ANO
+ 'Zuzana Ožanová':  `ozanovaz@seznam.cz` , // ANO
+ 'Jan Papajanovský':  `papajanovskyj@seznam.cz` , // STAN
+ 'Patrik Pařil':  `parilp@seznam.cz` , // ANO
+ 'Jana Pastuchová':  `pastuchovaj@seznam.cz` , // ANO
+ 'Jana Patková':  `patkovaj@seznam.cz` , // Piráti
+ 'Jiří Penc[p 9]':  `9]j@seznam.cz` , // ANO
+ 'Berenika Peštová':  `pestovab@seznam.cz` , // ANO
+ 'František Petrtýl':  `petrtylf@seznam.cz` , // ANO
+ 'Tom Philipp':  `philippt@seznam.cz` , // SPOLU
+ 'Vladimír Pikora':  `pikorav@seznam.cz` , // Motoristé
+ 'Barbora Pipášová':  `pipasovab@seznam.cz` , // Piráti
+ 'Pavla Pivoňka Vaňková':  `vankovap@seznam.cz` , // STAN
+ 'Robert Plaga':  `plagar@seznam.cz` , // ANO
+ 'Václav Pláteník':  `platenikv@seznam.cz` , // SPOLU
+ 'Jiří Pospíšil':  `pospisilj@seznam.cz` , // SPOLU
+ 'Marie Pošarová':  `posarovam@seznam.cz` , // SPD
+ 'David Pražák':  `prazakd@seznam.cz` , // ANO
+ 'Jindřich Rajchl':  `rajchlj@seznam.cz` , // SPD
+ 'Vít Rakušan':  `rakusanv@seznam.cz` , // STAN
+ 'Michal Ratiborský':  `ratiborskym@seznam.cz` , // ANO
+ 'Barbora Rázga':  `razgab@seznam.cz` , // ANO
+ 'Jan Richter':  `richterj@seznam.cz` , // ANO
+ 'Olga Richterová':  `richterovao@seznam.cz` , // Piráti
+ 'Pavel Růžička':  `ruzickap@seznam.cz` , // ANO
+ 'Drahoslav Ryba':  `rybad@seznam.cz` , // ANO
+ 'Petr Sadovský':  `sadovskyp@seznam.cz` , // ANO
+ 'Miroslav Samaš':  `samasm@seznam.cz` , // ANO
+ 'Gabriela Sedláčková':  `sedlackovag@seznam.cz` , // Motoristé
+ 'Lucie Sedmihradská':  `sedmihradskal@seznam.cz` , // STAN
+ 'Alena Schillerová':  `schillerovaa@seznam.cz` , // ANO
+ 'Vítězslav Schrek':  `schrekv@seznam.cz` , // SPOLU
+ 'Zuzana Schwarz Bařtipánová':  `bartipanovaz@seznam.cz` , // ANO
+ 'Jan Síla':  `silaj@seznam.cz` , // SPD
+ 'Jan Skopeček':  `skopecekj@seznam.cz` , // SPOLU
+ 'Štěpán Slovák':  `slovaks@seznam.cz` , // SPOLU
+ 'Julie Smejkalová':  `smejkalovaj@seznam.cz` , // STAN
+ 'Petr Sokol':  `sokolp@seznam.cz` , // SPOLU
+ 'Kateřina Stojanová':  `stojanovak@seznam.cz` , // Piráti
+ 'Jiří Strýček':  `strycekj@seznam.cz` , // ANO
+ 'Robert Stržínek':  `strzinekr@seznam.cz` , // ANO
+ 'Gabriela Svárovská':  `svarovskag@seznam.cz` , // Piráti
+ 'Jan Sviták':  `svitakj@seznam.cz` , // STAN
+ 'Jiří Svoboda':  `svobodaj@seznam.cz` , // ANO
+ 'Vendula Svobodová':  `svobodovav@seznam.cz` , // Piráti
+ 'Lucie Šafránková':  `safrankoval@seznam.cz` , // SPD
+ 'Michaela Šebelová':  `sebelovam@seznam.cz` , // STAN
+ 'Miroslav Ševčík':  `sevcikm@seznam.cz` , // SPD
+ 'Markéta Šichtařová':  `sichtarovam@seznam.cz` , // SPD
+ 'Martin Šmída[p 10]':  `10]m@seznam.cz` , // Piráti
+ 'Eva Šrámková':  `sramkovae@seznam.cz` , // Piráti
+ 'Boris Šťastný':  `stastnyb@seznam.cz` , // Motoristé
+ 'David Štolpa':  `stolpad@seznam.cz` , // ANO
+ 'František Talíř':  `talirf@seznam.cz` , // SPOLU
+ 'Róbert Teleky':  `telekyr@seznam.cz` , // SPOLU
+ 'Václav Trojan':  `trojanv@seznam.cz` , // ANO
+ 'Karel Tureček':  `turecekk@seznam.cz` , // ANO
+ 'Filip Turek':  `turekf@seznam.cz` , // Motoristé
+ 'Libor Turek':  `turekl@seznam.cz` , // SPOLU
+ 'Barbora Urbanová':  `urbanovab@seznam.cz` , // STAN
+ 'Vlastimil Válek':  `valekv@seznam.cz` , // SPOLU
+ 'Helena Válková':  `valkovah@seznam.cz` , // ANO
+ 'Josef Váňa':  `vanaj@seznam.cz` , // ANO
+ 'Renata Vesecká':  `veseckar@seznam.cz` , // Motoristé
+ 'Lukáš Vlček':  `vlcekl@seznam.cz` , // STAN
+ 'Jiří Vojáček':  `vojacekj@seznam.cz` , // SPOLU
+ 'Adam Vojtěch':  `vojtecha@seznam.cz` , // ANO
+ 'Jitka Volfová':  `volfovaj@seznam.cz` , // ANO
+ 'Samuel Volpe':  `volpes@seznam.cz` , // Piráti
+ 'Libor Vondráček':  `vondracekl@seznam.cz` , // SPD
+ 'Radek Vondráček':  `vondracekr@seznam.cz` , // ANO
+ 'Otto Vopěnka':  `vopenkao@seznam.cz` , // ANO
+ 'Petr Vrána':  `vranap@seznam.cz` , // ANO
+ 'Marek Výborný':  `vybornym@seznam.cz` , // SPOLU
+ 'Ester Weimerová':  `weimerovae@seznam.cz` , // STAN
+ 'Lubomír Wenzl':  `wenzll@seznam.cz` , // ANO
+ 'Martin Záhoř':  `zahorm@seznam.cz` , // ANO
+ 'Renáta Zajíčková':  `zajickovar@seznam.cz` , // SPOLU
+ 'Roman Zarzycký[p 11]':  `11]r@seznam.cz` , // ANO
+ 'Michal Zuna':  `zunam@seznam.cz` , // SPOLU
+ 'Pavel Žáček':  `zacekp@seznam.cz` , // SPOLU
+ 'Miroslav Žbánek':  `zbanekm@seznam.cz` , // ANO
+ 'Marek Ženíšek':  `zenisekm@seznam.cz` , // SPOLU
+
   },
   other: {
-    "Ondřej Lukeš": "ondralukes06@seznam.cz",
+    // "Ondřej Lukeš": "ondralukes06@seznam.cz",
     "Jaroslav Bžoch": "jaroslav.bzoch@europarl.euro", // keep as-is or correct domain if known
   },
 };
